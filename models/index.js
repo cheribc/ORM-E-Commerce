@@ -4,13 +4,29 @@ const Category = require('./Category');
 const Tag = require('./Tag');
 const ProductTag = require('./ProductTag');
 
-// Products belongsTo Category
+// Use source model and target model to define association type between models
 
-// Categories have many Products
+// Product belongs to Category 1:1
+Product.belongsTo(Category, {
+  foreignKey: 'category',
+});
 
-// Products belongToMany Tags (through ProductTag)
+// Category has many Products 1:many
+Category.hasMany(Product, { 
+  foreignKey: 'product_id',
+});
+Product.belongsTo(Category);
 
-// Tags belongToMany Products (through ProductTag)
+// Products belongToMany Tags (through ProductTag) many:many
+Product.belongsToMany(Tag, {
+  through: 'ProductTag',
+});
+
+// Tags belongToMany Products (through ProductTag) many:many
+Tag.belongsToMany(Product, {
+  through: 'ProductTag',
+});
+
 
 module.exports = {
   Product,
