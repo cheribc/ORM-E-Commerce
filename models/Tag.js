@@ -14,14 +14,14 @@ Tag.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: false,
+      autoIncrement: true,
     },
-    product_id: {
-      type: DataTypes.INTEGER,
-    },
+    // product_id: {
+    //   type: DataTypes.INTEGER,
+    // },
     tag_name: {
       type: DataTypes.STRING,
-    },
+    }
   },
   {
     sequelize,
