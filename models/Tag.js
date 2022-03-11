@@ -16,9 +16,7 @@ Tag.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // product_id: {
-    //   type: DataTypes.INTEGER,
-    // },
+  
     tag_name: {
       type: DataTypes.STRING,
     }
